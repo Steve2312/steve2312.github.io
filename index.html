@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hibiki.xyz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="video">
+        <video autoplay="true" muted="true" loop="true" src="bg.mp4"></video>
+    </div>
+    <div class="container">
+        <p class="song_name" id="song_name" onclick="open_song_website()"></p>
+        <p class="artist_name" id="artist_name"></p>
+        <div class="volume">
+            <input type="range" min="1" max="40" value="20" class="volume_slider" id="volume_slider" oninput="change_volume()">
+        </div>
+        <div class="controls">
+            <span onclick="previous()"><i class="fas fa-step-backward"></i></span>
+            <span onclick="play_pause()"><i id="media_button" class="fas fa-play"></i></span>
+            <span onclick="next()"><i class="fas fa-step-forward"></i></span>
+        </div>
+        <div class="logo">
+            <img src="anime.jpg">
+        </div>
+        <div class="name">Hibiki</div>
+        <div class="creator">Made by Steve2312</div>
+        <p class="subject">Social media</p>
+        <div class="links">
+            <a href="https://github.com/Steve2312" target="blank">Github</a>
+            <a href="https://twitter.com/Steve2312_" target="blank">Twitter</a>
+            <a href="https://www.instagram.com/stev.y_" target="blank">Instagram</a>
+            <a href="https://open.spotify.com/user/epvcefwxz3rx8xhqm5nayql6v?si=sRaRZLhjRBS1soxFggW6Ng" target="blank">Spotify</a>
+            <a href="https://discord.gg/8tZWhKX" target="blank">Discord</a>
+            <a href="https://myanimelist.net/animelist/Steve2312" target="blank">MyAnimeList</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -74,7 +74,8 @@ function play_from_playlist(id) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    playing = Math.floor(Math.random() * playlist.length);
+    // playing = Math.floor(Math.random() * playlist.length);
+    playing = 3;
     audio.volume = 0.2;
     play_from_playlist(playing);
 });

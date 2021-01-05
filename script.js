@@ -37,15 +37,13 @@ function play_pause() {
 }
 
 function pause() {
-    var button = document.getElementById("media_button")
-    button.className = "fas fa-play"
     audio.pause();
+    document.getElementById("media_button").className = "fas fa-play";
 }
 
 function play() {
-    var button = document.getElementById("media_button")
-    button.className = "fas fa-pause"
     audio.play();
+    document.getElementById("media_button").className = "fas fa-pause";
 }
 
 function open_song_website() {

@@ -1,29 +1,35 @@
 var audio = document.createElement("AUDIO");
 var playing;
 var playlist = [
-    {
-        name: "Crystal clear",
-        artist: "Crystal Statues, Resonance, crescent, STM (prod.yandere)",
-        song_file: "song1.mp3",
-        url: "https://soundcloud.com/crystalstatues/crystal-clear"
-    },
-    {
-        name: "there for you",
-        artist: "Crystal Statues, 8485, STM (prod.yandere)",
-        song_file: "song2.mp3",
-        url: "https://soundcloud.com/crystalstatues/there4u"
-    },
-    {
-        name: "fuxk'd up",
-        artist: "kid sora, luvbackpack (neverquest)",
-        song_file: "song3.mp3",
-        url: "https://soundcloud.com/1kidsora/kid-sora-luvbackpack-fuxkd-up-prod-neverquest"
-    },
+    // {
+    //     name: "Crystal clear",
+    //     artist: "Crystal Statues, Resonance, crescent, STM (prod.yandere)",
+    //     song_file: "song1.mp3",
+    //     url: "https://soundcloud.com/crystalstatues/crystal-clear"
+    // },
+    // {
+    //     name: "there for you",
+    //     artist: "Crystal Statues, 8485, STM (prod.yandere)",
+    //     song_file: "song2.mp3",
+    //     url: "https://soundcloud.com/crystalstatues/there4u"
+    // },
+    // {
+    //     name: "fuxk'd up",
+    //     artist: "kid sora, luvbackpack (neverquest)",
+    //     song_file: "song3.mp3",
+    //     url: "https://soundcloud.com/1kidsora/kid-sora-luvbackpack-fuxkd-up-prod-neverquest"
+    // },
     {
         name: "god's menu (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)",
         artist: "stray kids",
         song_file: "song4.mp3",
         url: "https://www.youtube.com/watch?v=FeBwV8vheGQ"
+    },
+    {
+        name: "daechwita (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)",
+        artist: "agust d",
+        song_file: "song5.mp3",
+        url: "https://www.youtube.com/watch?v=zpVkQiOadro"
     }
 ];
 
@@ -72,8 +78,8 @@ function play_from_playlist(id) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // playing = Math.floor(Math.random() * playlist.length);
-    playing = 3;
+    playing = Math.floor(Math.random() * playlist.length);
+    // playing = 3;
     audio.volume = 0.2;
     play_from_playlist(playing);
 });

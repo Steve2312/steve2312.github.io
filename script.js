@@ -18,6 +18,12 @@ var playlist = [
         artist: "kid sora, luvbackpack (neverquest)",
         song_file: "song3.mp3",
         url: "https://soundcloud.com/1kidsora/kid-sora-luvbackpack-fuxkd-up-prod-neverquest"
+    },
+    {
+        name: "god's menu (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)",
+        artist: "stray kids",
+        song_file: "song4.mp3",
+        url: "https://www.youtube.com/watch?v=FeBwV8vheGQ"
     }
 ];
 

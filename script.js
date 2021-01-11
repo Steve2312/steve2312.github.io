@@ -39,7 +39,7 @@ function slowed_toggle() {
         audio.src = src;
 
         audio.onloadedmetadata = function() {
-            audio.currentTime = Math.floor((duration / audio.duration) * current);
+            audio.currentTime = Math.floor((audio.duration / duration) * current);
             audio.play();
             audio.onloadedmetadata = null;
         }

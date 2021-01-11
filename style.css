@@ -156,6 +156,21 @@ html, body {
     text-align: center;
 }
 
+.slowed {
+    color: var(--subject);
+    font-size: 14px;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.slowed:hover {
+    color: var(--hover);
+    transition: all ease-in-out 400ms;
+    cursor: pointer;
+}
+
 .links a:hover {
     color: var(--hover);
     transition: all ease-in-out 400ms;

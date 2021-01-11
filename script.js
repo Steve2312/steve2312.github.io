@@ -1,37 +1,6 @@
 var audio = document.createElement("AUDIO");
 var playing;
-var playlist = [
-    // {
-    //     name: "Crystal clear",
-    //     artist: "Crystal Statues, Resonance, crescent, STM (prod.yandere)",
-    //     song_file: "song1.mp3",
-    //     url: "https://soundcloud.com/crystalstatues/crystal-clear"
-    // },
-    // {
-    //     name: "there for you",
-    //     artist: "Crystal Statues, 8485, STM (prod.yandere)",
-    //     song_file: "song2.mp3",
-    //     url: "https://soundcloud.com/crystalstatues/there4u"
-    // },
-    // {
-    //     name: "fuxk'd up",
-    //     artist: "kid sora, luvbackpack (neverquest)",
-    //     song_file: "song3.mp3",
-    //     url: "https://soundcloud.com/1kidsora/kid-sora-luvbackpack-fuxkd-up-prod-neverquest"
-    // },
-    {
-        name: "god's menu (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)",
-        artist: "stray kids",
-        song_file: "song4.mp3",
-        url: "https://www.youtube.com/watch?v=FeBwV8vheGQ"
-    },
-    {
-        name: "daechwita (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)",
-        artist: "agust d",
-        song_file: "song5.mp3",
-        url: "https://www.youtube.com/watch?v=zpVkQiOadro"
-    }
-];
+var slowed = false;
 
 function change_volume() {
     var value = document.getElementById("volume_slider").value / 100;
@@ -57,6 +26,26 @@ function open_song_website() {
     win.focus();
 }
 
+function slowed_toggle() {
+    if(playlist[playing].hasOwnProperty('song_file_slowed')){
+        slowed = slowed ? false : true;
+        var song_name = slowed ? playlist[playing].name + " (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)" : playlist[playing].name;
+        var duration = audio.duration;
+        var current = audio.currentTime;
+        var src = slowed ? playlist[playing].song_file_slowed : playlist[playing].song_file;
+        
+        document.getElementById("slowed").textContent = slowed ? "Switch to normal" : "Switch to slowed";
+        document.getElementById("song_name").textContent = song_name;
+        audio.src = src;
+        audio.play();
+        audio.addEventListener("onloadedmetadata", function() {
+            console.log(Math.floor((duration / audio.duration) * current))
+            audio.currentTime = Math.floor((duration / audio.duration) * current);
+            audio.play();
+        }, true);
+    }
+}
+
 function previous() {
     var id = playing - 1;
     if (id < 0) id = playlist.length - 1;
@@ -72,9 +61,18 @@ function next() {
 
 function play_from_playlist(id) {
     playing = id;
-    document.getElementById("song_name").textContent = playlist[id].name;
+    
+    var song_name = slowed ? playlist[id].name + " (𝒔𝒍𝒐𝒘𝒆𝒅 𝒏 𝒓𝒆𝒗𝒆𝒓𝒃)" : playlist[id].name;
+    document.getElementById("song_name").textContent = song_name;
     document.getElementById("artist_name").textContent = playlist[id].artist;
-    audio.src = playlist[id].song_file;
+
+    var src = slowed ? playlist[id].song_file_slowed : playlist[id].song_file;
+    audio.src = src;
+    if(playlist[id].hasOwnProperty('song_file_slowed')){
+        document.getElementById("slowed").textContent = slowed ? "Switch to normal" : "Switch to slowed";
+    } else {
+        document.getElementById("slowed").textContent = "";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

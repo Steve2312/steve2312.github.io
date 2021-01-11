@@ -37,12 +37,13 @@ function slowed_toggle() {
         document.getElementById("slowed").textContent = slowed ? "Switch to normal" : "Switch to slowed";
         document.getElementById("song_name").textContent = song_name;
         audio.src = src;
-        audio.play();
-        audio.addEventListener("onloadedmetadata", function() {
+
+        audio.onloadedmetadata = function() {
             console.log(Math.floor((duration / audio.duration) * current))
             audio.currentTime = Math.floor((duration / audio.duration) * current);
             audio.play();
-        }, true);
+            audio.onloadedmetadata = null;
+        }
     }
 }
 
